@@ -1,6 +1,11 @@
-from langchain_core.prompts import ChatPromptTemplate
+from langchain.prompts import ChatPromptTemplate
 
-rag_prompt = ChatPromptTemplate.from_messages([
-    ("system", "Bạn là trợ lý hỗ trợ khách hàng trong lĩnh vực thương mại điện tử. Trả lời ngắn gọn và chính xác dựa trên ngữ cảnh được cung cấp. Nếu không có đủ thông tin, hãy nói 'Xin vui lòng cung cấp thêm chi tiết.'"),
-    ("human", "Ngữ cảnh: {}\n\nCâucontext hỏi: {question}")
-])
+def get_chatbot_prompt():
+    template = """
+    Bạn là một chatbot hỗ trợ khách hàng cho một nền tảng thương mại điện tử. Dựa trên ngữ cảnh dưới đây, trả lời câu hỏi một cách ngắn gọn (dưới 100 từ), chính xác và thân thiện. Nếu không có thông tin liên quan, yêu cầu người dùng làm rõ hoặc thông báo không có thông tin. Luôn sử dụng giọng điệu chuyên nghiệp và lịch sự.
+    Ngữ cảnh: {context}
+    Câu hỏi: {query}
+
+    Trả lời:
+    """
+    return ChatPromptTemplate.from_template(template)

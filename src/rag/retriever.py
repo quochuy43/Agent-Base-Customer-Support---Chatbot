@@ -1,7 +1,11 @@
-from langchain_community.vectorstores import Chroma
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 
-def load_retriever(persist_dir="db"):
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
-    vectordb = Chroma(persist_directory=persist_dir, embedding_function=embeddings)
-    return vectordb.as_retriever()
+_embeddings = None
+
+def get_retriever(persist_directory="db", k=3):
+    global _embeddings
+    if _embeddings is None:
+        _embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    vectordb = Chroma(persist_directory=persist_directory, embedding_function=_embeddings)
+    return vectordb.as_retriever(search_kwargs={"k": k})
