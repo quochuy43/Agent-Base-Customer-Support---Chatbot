@@ -7,7 +7,7 @@ import os
 import time
 import logging
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
 def get_rag_chain():
     try:

@@ -62,8 +62,14 @@ def build_agent_graph():
     graph.add_node("answer", RunnableLambda(answer_node))
     graph.add_node("handle_error", RunnableLambda(handle_error_node))
     graph.add_edge(START, "retrieve")
-    graph.add_conditional_edges("retrieve", route_to_error, {"answer": "answer", "handle_error": "handle_error"})
-    graph.add_conditional_edges("answer", route_to_error, {"answer": END, "handle_error": "handle_error"})
+    graph.add_conditional_edges("retrieve", route_to_error, {
+        "answer": "answer", 
+        "handle_error": "handle_error"
+    })
+    graph.add_conditional_edges("answer", route_to_error, {
+        "answer": END, 
+        "handle_error": "handle_error"
+    })
     graph.add_edge("handle_error", END)
     return graph.compile()
 
