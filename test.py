@@ -38,24 +38,26 @@
 # TEST 3
 # from src.rag.rag_chain import get_rag_chain
 # chain = get_rag_chain()
-# response = chain.invoke("Chính sách đổi trả là gì?")
+# response = chain.invoke("Cho mình xin đường link sản phẩm về Apple Iphone 14")
 # print(response)
 
+# import shutil
 
-
+# shutil.rmtree("db", ignore_errors=True)
+# print("Đã xóa thư mục db cũ.")
 
 # TEST 4
-# from src.agent.agent_graph import run_agent
+from src.agent.agent_graph import run_agent
 
-# questions = [
-#     "Chính sách đổi trả là gì?",
-#     "Chi phí vận chuyển bao nhiêu?",
-#     "Bạn có thể giới thiệu về cà phê sữa đi ạ?",
-#     "Mặt trăng làm từ gì?"
-# ]
-# for question in questions:
-#     response = run_agent(question)
-#     print(f"Câu hỏi: {question}\nTrả lời: {response}\n")
+questions = [
+    "Chính sách đổi trả là gì?",
+    "Chi phí vận chuyển bao nhiêu?",
+    "Cho mình xin giá Apple Iphone 14 đi ạ",
+    "Mặt trăng làm từ gì?"
+]
+for question in questions:
+    response = run_agent(question)
+    print(f"Câu hỏi: {question}\nTrả lời: {response}\n")
 
 
 

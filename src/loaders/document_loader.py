@@ -13,9 +13,9 @@ def load_and_split_documents(path="knowledge_base"):
     docs = splitter.split_documents(documents)
     return docs
 
-# docs = load_and_split_documents()
-# # In ra từng chunk
-# for i, doc in enumerate(docs):
-#     print(f"\n--- Chunk {i + 1} ---")
-#     print(doc.page_content)
+docs = load_and_split_documents()
+# In ra từng chunk
+for i, doc in enumerate(docs):
+    print(f"\n--- Chunk {i + 1} ---")
+    print(doc.page_content)
 

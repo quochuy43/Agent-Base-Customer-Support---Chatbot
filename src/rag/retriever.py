@@ -1,5 +1,6 @@
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
+import time
 
 _embeddings = None
 
@@ -11,6 +12,8 @@ def get_retriever(persist_directory="db", k=5):
     return vectordb.as_retriever(search_kwargs={"k": k})
 
 # retriever = get_retriever()
-# docs = retriever.invoke("giá của Bánh Mì Pate Trứng")
+# docs = retriever.invoke("giá của Điện thoại POCO C75")
 # for doc in docs:
 #     print(doc.page_content)
+
+# time.sleep(1)

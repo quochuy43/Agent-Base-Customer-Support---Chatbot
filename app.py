@@ -1,3 +1,46 @@
+# import streamlit as st
+# from src.agent.agent_graph import run_agent
+
+# from src.utils.config import load_config
+# config = load_config()
+
+# st.set_page_config(page_title="E-commerce Chatbot", page_icon="🛍️")
+# st.title("🛒 Chatbot Hỗ trợ Khách hàng")
+
+# # Lưu history chat, tạo bộ nhớ tạm cho phiên làm việc
+# if "chat_history" not in st.session_state:
+#     st.session_state.chat_history = []
+
+# # show hischat
+# for role, msg in st.session_state.chat_history:
+#     if role == 'user':
+#         st.chat_message('user').write(msg)
+#     else:
+#         st.chat_message('assistant').write(msg)
+
+# user_input = st.chat_input("Nhập câu hỏi của bạn...")
+
+# if user_input:
+#     st.chat_message("user").write(user_input)
+#     st.session_state.chat_history.append(("user", user_input))
+
+#     try:
+#         with st.spinner("🤖 Đang suy nghĩ..."):
+#             response = run_agent(user_input)
+#         st.chat_message("assistant").write(response)
+#         st.session_state.chat_history.append(("assistant", response))
+    
+#     except Exception as e:
+#         err_msg = str(e)
+#         if "429" in err_msg:
+#             friendly_error = "⚠️ Bạn đang gửi quá nhiều yêu cầu. Vui lòng thử lại sau."
+#         else:
+#             friendly_error = "❌ Có lỗi xảy ra. Vui lòng thử lại."
+#         st.chat_message("assistant").write(friendly_error)
+#         st.session_state.chat_history.append(("assistant", friendly_error))
+
+
+
 import streamlit as st
 import time
 from datetime import datetime
@@ -131,12 +174,12 @@ with st.sidebar:
     # Quick actions
     st.markdown("### ⚡ Câu hỏi gợi ý")
     quick_questions = [
-        "Bạn hãy giới thiệu về ca phê sữa đi",
+        "Thông tin về Apple iPhone 16 Pro Max",
         "Chính sách đổi trả như thế nào ạ",
         "Quy trình đặt hàng như nào",
         "Cho mình xin thông tin vận chuyển ạ",
         "Kiểm tra trạng thái đơn hàng như nào",
-        "Mình xin giá sữa chua trái cây đi ạ"
+        "xin giá Combo 4 tấm che nắng ô tô"
     ]
 
     for question in quick_questions:
